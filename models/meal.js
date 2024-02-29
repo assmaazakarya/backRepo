@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const mealSchema = mongoose.Schema({
 
-  name: {
+  title: {
     type: String,
     required: true,
     unique: true,
@@ -12,7 +12,7 @@ const mealSchema = mongoose.Schema({
     enum: ['vegan' , 'vegetarian' ,'non-vegetarian'],
     ref: "Category",
   },
-  desc: {
+  description: {
     type: String,
     minLength: 2,
   },

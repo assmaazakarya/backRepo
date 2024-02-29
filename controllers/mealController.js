@@ -11,9 +11,9 @@ const getAllMeals = async () => {
 };
 
 const addNew = async (
-  _name,
+  _title,
   _category,
-  _desc,
+  _description,
   _price,
   _ingrediants,
   _exclude,
@@ -21,9 +21,9 @@ const addNew = async (
 ) => {
   try {
     let data = await Meal.create({
-      name: _name,
+      title: _title,
       category: _category,
-      desc: _desc,
+      description: _description,
       price: _price,
       ingrediants: _ingrediants,
       exclude: _exclude,
@@ -48,9 +48,9 @@ const deleteItem = async (_id) => {
 const editItem = async (
   _id,
   _image,
-  _name,
+  _title,
   _category,
-  _desc,
+  _description,
   _price,
   _ingrediants,
 
@@ -62,9 +62,9 @@ const editItem = async (
       {
         $set: {
           image: _image,
-          name: _name,
+          title: _title,
           category: _category,
-          desc: _desc,
+          description: _description,
           price: _price,
           ingrediants: _ingrediants,
    

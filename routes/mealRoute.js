@@ -23,9 +23,9 @@ const upload =multer({storage:Storage});
 route.post('/add-item', upload.single('imageFile')  ,async(req,res)=>{
     let imageFile= new Date + req.file.filename;
     try{ 
-        let{name,category,desc,price,ingrediants,exclude} = req.body
-        let data = await mealController.addNew(name,category,desc,price,ingrediants,exclude,imageFile)
-        console.log(req.file)
+        let{title,category,description,price,ingrediants,exclude} = req.body
+        let data = await mealController.addNew(title,category,description,price,ingrediants,exclude,imageFile)
+        // console.log(imageFile)
         res.send("ok"+ data)
     }catch(e){
         res.status(500).send('server error')
@@ -68,8 +68,8 @@ route.delete('/delete-item' , async(req,res)=>{
 
 route.patch('/edit-item' , async(req,res)=>{
     try{
-        let{id,image,name,category,desc,price,ingrediants,exclude} = req.body
-        let data = await mealController.editItem(id,image,name,category,desc,price,ingrediants,exclude)
+        let{id,image,title,category,description,price,ingrediants,exclude} = req.body
+        let data = await mealController.editItem(id,image,title,category,description,price,ingrediants,exclude)
         res.send("item edited succesfully")
     }catch(e){
         res.status(500).send('server error')

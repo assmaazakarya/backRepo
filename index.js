@@ -40,8 +40,8 @@ app.use("/api/stripe" , stripe)
 app.use('/meals' , mealRoute)
 // app.use(multipart());
 
-// app.get("/meals", (req, res) => {
-//     res.send(meals);
-//   });
+app.get("/meals", (req, res) => {
+    res.send(meals);
+  });
 
 app.listen(port , ()=> console.log(`app listens on port : ${port}`))
